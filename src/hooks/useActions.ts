@@ -1,14 +1,13 @@
 'use server';
 
 import { parseWithZod } from '@conform-to/zod';
-import { Provider } from '@supabase/supabase-js';
+import { type Provider } from '@supabase/supabase-js';
 import { redirect } from 'next/navigation';
 
 import { supabaseErrorMessages } from '@/config/errorMessage';
 import { loginSchema, signupSchema } from '@/config/schema';
 
 import { createClient } from '@/utils/supabase/server';
-import { decode } from 'punycode';
 
 export async function emailLogin(prevState: unknown, formData: FormData) {
   const supabase = await createClient();

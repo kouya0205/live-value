@@ -1,4 +1,4 @@
-import { CardConfig } from 'types';
+import { type CardConfig } from 'types';
 
 export const cardConfig: CardConfig = {
   types: [
