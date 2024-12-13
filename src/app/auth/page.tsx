@@ -1,4 +1,4 @@
-import { AuthForm } from './authpage';
+import { AuthForm } from '@/app/auth/authpage';
 
 export default function AuthPage() {
   return (

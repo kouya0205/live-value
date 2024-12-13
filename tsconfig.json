@@ -25,7 +25,8 @@
       "@/utils/*": ["utils/*"],
       "@/hooks/*": ["hooks/*"],
       "@/lib/*": ["lib/*"],
-      "@/config/*": ["config/*"]
+      "@/config/*": ["config/*"],
+      "@/app/*": ["app/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
