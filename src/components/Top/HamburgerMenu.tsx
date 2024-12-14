@@ -1,40 +1,27 @@
-'use client';
-
-import { useState } from 'react';
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetDescription,
-  SheetTrigger,
-} from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import Image from 'next/image';
 
 export default function HamburgerMenu() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
-    <Sheet open={isOpen} onOpenChange={setIsOpen}>
+    <Sheet>
       <div className="lg:hidden">
         <SheetTrigger asChild>
-          <button
-            className="flex flex-col justify-between w-[28px] h-[22px] cursor-pointer"
-            aria-label={isOpen ? 'Close menu' : 'Open menu'}>
-            <div
-              className={`h-[2px] w-full bg-gray-800 rounded transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2.5' : ''}`}></div>
-            <div
-              className={`h-[2px] w-full bg-gray-800 rounded transition-all duration-300 ${isOpen ? 'opacity-0' : 'opacity-100'}`}></div>
-            <div
-              className={`h-[2px] w-full bg-gray-800 rounded transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2.5' : ''}`}></div>
+          <button className="flex flex-col items-center justify-center gap-1 rounded-full bg-white border-[#f2f2f2] border-[1px] w-12 h-12 cursor-pointer">
+            <div className="h-2 border-y-[1px] w-6 border-black" />
           </button>
         </SheetTrigger>
       </div>
-      <SheetContent className="z-[999] top-16">
-        <SheetHeader>
-          <SheetTitle>Menu</SheetTitle>
-          <SheetDescription>Navigation options and settings.</SheetDescription>
+      <SheetContent className="z-[999]" side="left">
+        <SheetHeader className="h-10">
+          <Image
+            width={160}
+            height={40}
+            src="/logo.svg"
+            alt="サイトロゴ"
+            className="h-auto object-contain"
+          />
         </SheetHeader>
-        {/* Add your menu items here */}
+        <SheetTitle>Menu</SheetTitle>
       </SheetContent>
     </Sheet>
   );

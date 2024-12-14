@@ -30,9 +30,12 @@ export default async function Header() {
               Contact
             </Link>
           </nav>
-          <Link href="/login" className="hidden lg:block">
+          <Link href="/auth" className="hidden lg:block">
             <Button className="text-sm py-3 px-5">ログイン/新規登録</Button>
           </Link>
+          <form action="/auth/signout" method="post">
+            <Button type="submit">Sign out</Button>
+          </form>
         </div>
 
         <HamburgerMenu />

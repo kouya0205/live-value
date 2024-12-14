@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 
 import { siteConfig } from '@/config/site';
 import React from 'react';
+import Header from '@/components/Top/Header';
+import Footer from '@/components/Top/Footer';
+import AuthHeader from '@/components/auth/AuthHeader';
 
 export const metadata: Metadata = {
   title: siteConfig.auth.title,
@@ -28,5 +31,10 @@ export default async function AuthLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <main className="h-auto p-0">{children}</main>;
+  return (
+    <>
+      <AuthHeader />
+      <main className="h-auto p-0">{children}</main>
+    </>
+  );
 }
