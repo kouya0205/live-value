@@ -12,7 +12,7 @@ export default async function Footer() {
                 <Image
                   width={140}
                   height={40}
-                  src="/images/top/logo.webp"
+                  src="/images/top/logo-white.webp"
                   alt="company icon"
                   className="mb-[10px] ml-[0px] mt-[20px] w-[140px] lg:my-0 lg:ml-[40px] lg:w-[210px]"
                 />

@@ -1,22 +1,18 @@
 import Footer from '@/components/Top/Footer';
 import Header from '@/components/Top/Header';
+import { createClient } from '@/utils/supabase/server';
 import Image from 'next/image';
 
-export default function Home() {
+export default async function Home() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
   return (
     <>
-      <Header />
-      <div className="flex flex-col items-center justify-center py-2">
-        <Image src="/logo.svg" alt="logo" className="h-24" width={200} height={200} />
-        <h1 className="text-6xl font-bold">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-      </div>
-      <div className="flex flex-col items-center justify-center py-2">
-        <h1 className="text-6xl font-bold">
-          Get started by editing{' '}
-          <code className="p-3 font-mono text-lg bg-gray-100 rounded-md">pages/index.js</code>
-        </h1>
+      <Header user={user} />
+      <div className="flex flex-col items-center justify-center py-2 min-h-screen">
+        <h1>感謝!</h1>
       </div>
       <Footer />
     </>

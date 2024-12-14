@@ -32,9 +32,9 @@ export default async function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
+    <div className="min-h-screen bg-white">
       <AuthHeader />
-      <main className="h-auto p-0">{children}</main>
-    </>
+      <main>{children}</main>
+    </div>
   );
 }
