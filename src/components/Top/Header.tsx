@@ -18,7 +18,6 @@ export default async function Header({ user }: { user: User | null }) {
             className="h-auto object-contain"
           />
         </Link>
-
         <div className="flex gap-8 items-center">
           <nav className="hidden gap-8 text-sm font-medium text-gray-600 lg:flex">
             <Link
@@ -42,7 +41,6 @@ export default async function Header({ user }: { user: User | null }) {
               初心者の方へ
             </Link>
           </nav>
-
           {user ? (
             <>
               <Link href="/dashboard" className="hidden lg:block">
