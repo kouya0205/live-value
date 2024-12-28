@@ -28,7 +28,6 @@ export default async function AppHeader() {
     data: { user },
   } = await supabase.auth.getUser();
   const { data: profile } = await supabase.from('profiles').select().eq('id', user?.id).single();
-  console.log(profile);
 
   return (
     <header className="fixed w-full z-[999] shadow-md transition-all duration-300">
@@ -49,7 +48,7 @@ export default async function AppHeader() {
                 </Link>
               ))}
             </nav>
-            <AppHamburgerMenu profile={profile} />
+            <AppHamburgerMenu profile={profile} navLinks={navLinks} />
           </div>
         </div>
       </div>

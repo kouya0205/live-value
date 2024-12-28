@@ -1,4 +1,4 @@
-import { AuthForm } from '@/app/auth/authpage';
+import { AuthForm } from '@/components/auth/authpage';
 import { createClient } from '@/utils/supabase/server';
 import { redirect } from 'next/navigation';
 

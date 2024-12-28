@@ -41,7 +41,7 @@ export default async function Header({ user }: { user: User }) {
                 ログイン/新規登録
               </Button>
             </Link>
-            <HamburgerMenu />
+            <HamburgerMenu navLinks={navLinks} />
           </div>
         </div>
       </div>

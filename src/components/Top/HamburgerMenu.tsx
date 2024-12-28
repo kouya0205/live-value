@@ -1,7 +1,9 @@
+import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import Image from 'next/image';
+import Link from 'next/link';
 
-export default function HamburgerMenu() {
+export default function HamburgerMenu({ navLinks }: { navLinks: { title: string; id: string }[] }) {
   return (
     <Sheet>
       <div className="lg:hidden">
@@ -21,7 +23,22 @@ export default function HamburgerMenu() {
             className="h-auto object-contain"
           />
         </SheetHeader>
-        <SheetTitle>Menu</SheetTitle>
+        <SheetTitle></SheetTitle>
+        <nav className="flex flex-col  text-[12px] font-medium text-gray-600 gap-2">
+          {navLinks.map((link) => (
+            <Link
+              key={link.title}
+              href={link.id}
+              className="font-bold text-base transition-colors flex flex-col gap-[2px] min-w-[80px] duration-200 hover:text-gray-900 cursor-pointer h-full hover:bg-[#f2f2f2] items-center justify-center">
+              {link.title}
+            </Link>
+          ))}
+        </nav>
+        <Link href="/auth" className="items-center flex justify-center w-full pt-2">
+          <Button className="text-sm py-2 px-3 lg:py-3 lg:px-4 font-bold w-full">
+            ログイン/新規登録
+          </Button>
+        </Link>
       </SheetContent>
     </Sheet>
   );

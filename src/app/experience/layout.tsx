@@ -3,22 +3,22 @@ import AppHeader from '@/components/MyPage/Top/Header';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'アップロード',
-  description: 'LiveValueのアップロードページ、ここでは健康診断データのアップロードができます。',
-  metadataBase: new URL('https://livevalue.vercel.app/upload'),
+  title: '経験・スキル',
+  description: 'LiveValueの経験・スキルページ、ここではあなたの経験やスキルを入力できます。',
+  metadataBase: new URL('https://livevalue.vercel.app/experience'),
   openGraph: {
-    title: 'アップロード',
-    description: 'LiveValueのアップロードページ、ここでは健康診断データのアップロードができます。',
-    url: 'https://livevalue.vecerl.app/upload',
+    title: '経験・スキル',
+    description: 'LiveValueの経験・スキルページ、ここではあなたの経験やスキルを入力できます。',
+    url: 'https://livevalue.vecerl.app/experience',
     images: [
       {
         url: 'https://livevalue.vecerl.app/default-og-image.jpg',
         width: 800,
         height: 600,
-        alt: 'アップロード',
+        alt: '経験・スキル',
       },
     ],
-    siteName: 'アップロード',
+    siteName: '経験・スキル',
   },
 };
 
