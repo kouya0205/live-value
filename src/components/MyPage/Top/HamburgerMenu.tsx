@@ -3,8 +3,15 @@ import { Separator } from '@/components/ui/separator';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 import Link from 'next/link';
 import { UserProfile } from 'types';
+import { Icon } from '@mdi/react';
 
-export default async function AppHamburgerMenu({ profile }: { profile: UserProfile }) {
+export default async function AppHamburgerMenu({
+  profile,
+  navLinks,
+}: {
+  profile: UserProfile;
+  navLinks: { title: string; href: string; icon: string }[];
+}) {
   return (
     <Sheet>
       <SheetTrigger asChild>
@@ -22,11 +29,11 @@ export default async function AppHamburgerMenu({ profile }: { profile: UserProfi
           <SheetTitle className="items-center min-h-12 flex">メニュー</SheetTitle>
         </SheetHeader>
         <Separator className="my-2" />
-        <Link href={`/users/${profile.id}`}>
+        <Link href={`/users/${profile.id}`} className="my-2">
           <div className="flex gap-4">
             <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarImage src={profile.avatar_url} alt="avatar" />
+              <AvatarFallback>{profile.username}</AvatarFallback>
             </Avatar>
             <div className="flex flex-col gap-[2px]">
               <h2>{profile.username}</h2>
@@ -34,6 +41,15 @@ export default async function AppHamburgerMenu({ profile }: { profile: UserProfi
             </div>
           </div>
         </Link>
+        {navLinks.map((link) => (
+          <Link
+            key={link.title}
+            href={link.href}
+            className="flex items-center gap-3 font-semibold py-2 hover:bg-[#f2f2f2] rounded-lg px-2">
+            <Icon path={link.icon} size={1.2} />
+            <p>{link.title}</p>
+          </Link>
+        ))}
       </SheetContent>
     </Sheet>
   );
