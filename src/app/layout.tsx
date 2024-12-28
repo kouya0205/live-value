@@ -14,11 +14,12 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: 'Team: curry' + ' | %s',
-    default: 'Hack GALA',
+    template: 'LiveValue' + ' | %s',
+    default: 'LiveValue',
   },
-  description: 'Hack GALA 2024のチーム「curry」のwebアプリケーションです。',
+  description: 'LiveValueは、あなたの生涯価値を可視化するためのプラットフォームです。',
 };
+
 export default function RootLayout({
   children,
 }: Readonly<{

@@ -1,62 +1,49 @@
-import HamburgerMenu from '@/components/Top/HamburgerMenu';
-import { Button } from '@/components/ui/button';
-import { User } from '@supabase/supabase-js';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default async function Header({ user }: { user: User | null }) {
+import { User } from '@supabase/supabase-js';
+import { Button } from '@/components/ui/button';
+import HamburgerMenu from '@/components/Top/HamburgerMenu';
+
+const navLinks: Array<{ title: string; id: string }> = [
+  { title: '概要', id: '#about' },
+  { title: '使い方', id: '#how-to-use' },
+  { title: 'お問い合わせ', id: '#contact' },
+];
+
+export default async function Header({ user }: { user: User }) {
   return (
-    <header className="fixed left-5 right-5 top-5 z-[999] py-2 px-[10px] rounded-sm transition-all duration-300 backdrop-blur-[50px]">
-      <div className="flex items-center justify-between">
-        {/* ロゴ */}
-        <Link href="/" className="cursor-pointer">
-          <Image
-            width={160}
-            height={40}
-            src="/images/top/logo-black.webp"
-            alt="サイトロゴ"
-            className="h-auto object-contain"
-          />
-        </Link>
-        <div className="flex gap-8 items-center">
-          <nav className="hidden gap-8 text-sm font-medium text-gray-600 lg:flex">
-            <Link
-              href="/about"
-              className="transition-colors duration-200 hover:text-gray-900 cursor-pointer">
-              日記
+    <header className="fixed w-full z-[999] shadow-md transition-all duration-300">
+      <div className="px-3 lg:px-8 py-1">
+        <div className="flex items-center justify-between lg:justify-around h-16">
+          <Link href="/" className="flex-shrink-0">
+            <Image
+              src="/images/top/logo-black.webp"
+              alt="Logo"
+              width={140}
+              height={45}
+              className="lg:w-36 lg:h-[45px] w-28 h-9"
+            />
+          </Link>
+          <div className="flex h-full items-center">
+            <nav className="hidden text-[12px] font-medium text-gray-600 lg:flex h-full mr-3">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.title}
+                  href={link.id}
+                  className="font-bold text-base transition-colors flex flex-col gap-[2px] min-w-[80px] duration-200 hover:text-gray-900 cursor-pointer h-full hover:bg-[#f2f2f2] items-center justify-center">
+                  {link.title}
+                </Link>
+              ))}
+            </nav>
+            <Link href="/auth" className="pr-2 lg:pr-4">
+              <Button className="text-sm py-2 px-3 lg:py-3 lg:px-4 font-bold">
+                ログイン/新規登録
+              </Button>
             </Link>
-            <Link
-              href="/services"
-              className="transition-colors duration-200 hover:text-gray-900 cursor-pointer">
-              コミュニティ
-            </Link>
-            <Link
-              href="/contact"
-              className="transition-colors duration-200 hover:text-gray-900 cursor-pointer">
-              イベント
-            </Link>
-            <Link
-              href="/contact"
-              className="transition-colors duration-200 hover:text-gray-900 cursor-pointer">
-              初心者の方へ
-            </Link>
-          </nav>
-          {user ? (
-            <>
-              <Link href="/dashboard" className="hidden lg:block">
-                <Button className="text-sm py-3 px-5">ダッシュボード</Button>
-              </Link>
-              <form action="/auth/signout" method="post">
-                <Button type="submit">Sign out</Button>
-              </form>
-            </>
-          ) : (
-            <Link href="/auth" className="hidden lg:block">
-              <Button className="text-sm py-3 px-5">ログイン/新規登録</Button>
-            </Link>
-          )}
+            <HamburgerMenu />
+          </div>
         </div>
-        <HamburgerMenu />
       </div>
     </header>
   );

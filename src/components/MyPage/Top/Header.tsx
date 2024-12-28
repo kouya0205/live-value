@@ -2,31 +2,39 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import {
-  mdiFormatListBulletedType,
-  mdiAccountGroupOutline,
-  mdiNotebookOutline,
-  mdiCalendarSearch,
+  mdiAccountOutline,
   mdiBellOutline,
-  mdiAccountCircleOutline,
+  mdiFileDocumentMultipleOutline,
+  mdiHeadCogOutline,
+  mdiLinkVariantPlus,
+  mdiUploadBoxOutline,
 } from '@mdi/js';
 import Icon from '@mdi/react';
-import AppHamburgerMenu from '@/components/App/Top/HamburgerMenu';
+import { createClient } from '@/utils/supabase/server';
+import AppHamburgerMenu from '@/components/MyPage/Top/HamburgerMenu';
 
 const navLinks: Array<{ title: string; href: string; icon: string }> = [
-  { title: '日課', href: '/tasks', icon: mdiFormatListBulletedType },
-  { title: '日記', href: '/diaries', icon: mdiNotebookOutline },
-  { title: 'コミュニティ', href: '/communities', icon: mdiAccountGroupOutline },
-  { title: 'イベント', href: '/events', icon: mdiCalendarSearch },
+  { title: 'アップロード', href: '/upload', icon: mdiUploadBoxOutline },
+  { title: 'スキル・経験', href: '/experience', icon: mdiHeadCogOutline },
+  { title: '履歴書', href: '/resume', icon: mdiFileDocumentMultipleOutline },
+  { title: '共有リンク', href: '/share', icon: mdiLinkVariantPlus },
   { title: 'お知らせ', href: '/notifications', icon: mdiBellOutline },
-  { title: 'マイページ', href: '/mypage', icon: mdiAccountCircleOutline },
+  { title: 'マイページ', href: '/mypage', icon: mdiAccountOutline },
 ];
 
 export default async function AppHeader() {
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  const { data: profile } = await supabase.from('profiles').select().eq('id', user?.id).single();
+  console.log(profile);
+
   return (
     <header className="fixed w-full z-[999] shadow-md transition-all duration-300">
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-16">
-          <Link href="/app" className="flex-shrink-0">
+          <Link href="/mypage" className="flex-shrink-0">
             <Image src="/images/top/logo-black.webp" alt="Logo" width={140} height={45} />
           </Link>
           <div className="flex h-full items-center">
@@ -41,7 +49,7 @@ export default async function AppHeader() {
                 </Link>
               ))}
             </nav>
-            <AppHamburgerMenu />
+            <AppHamburgerMenu profile={profile} />
           </div>
         </div>
       </div>

@@ -9,5 +9,9 @@ export default async function AppHome() {
   if (!user) {
     redirect('/auth');
   }
-  return <div></div>;
+  return (
+    <div>
+      <div className="flex flex-col items-center justify-center py-2">mypageです。</div>
+    </div>
+  );
 }

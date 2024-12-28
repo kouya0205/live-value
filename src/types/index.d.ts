@@ -140,3 +140,10 @@ export type CardConfig = {
   colors: { title: string; id: number; value: string }[];
   oshi_colors: { title: string; id: number; value: string }[];
 };
+
+export type UserProfile = {
+  id: string;
+  username: string;
+  updated_at: string;
+  avatar_url: string;
+};

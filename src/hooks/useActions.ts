@@ -35,7 +35,7 @@ export async function emailLogin(prevState: unknown, formData: FormData) {
     });
   }
 
-  redirect('/app');
+  redirect('/mypage');
 }
 
 export async function signup(prevState: unknown, formData: FormData) {
@@ -109,7 +109,7 @@ export async function socialSignIn(provider: Provider) {
 export async function signOut() {
   const supabase = await createClient();
   await supabase.auth.signOut();
-  redirect('/app');
+  redirect('/mypage');
 }
 
 // export async function updateProfile(values: any) {

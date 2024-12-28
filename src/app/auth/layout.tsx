@@ -2,8 +2,6 @@ import type { Metadata } from 'next';
 
 import { siteConfig } from '@/config/site';
 import React from 'react';
-import Header from '@/components/Top/Header';
-import Footer from '@/components/Top/Footer';
 import AuthHeader from '@/components/auth/AuthHeader';
 
 export const metadata: Metadata = {
