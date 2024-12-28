@@ -16,7 +16,9 @@ export default function UploadPage() {
   const handleUpload = async () => {
     if (!file) return;
     setLoading(true);
+
     console.log('file', file);
+
 
     // FormDataでAPI Routeに送信
     const formData = new FormData();
