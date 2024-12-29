@@ -10,7 +10,7 @@ export default async function Home() {
   return (
     <>
       <Header user={user} />
-      <div className="flex flex-col items-center justify-center py-2 min-h-screen">aaaaaa</div>
+      <div className="flex flex-col items-center justify-center py-2 min-h-screen">lp</div>
       <Footer />
     </>
   );
