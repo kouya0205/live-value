@@ -50,6 +50,14 @@ export default async function AppHamburgerMenu({
             <p>{link.title}</p>
           </Link>
         ))}
+        <form action="/auth/signout" method="post">
+          <button
+            type="submit"
+            className="flex items-center gap-3 font-semibold py-2 hover:bg-[#f2f2f2] rounded-lg px-2">
+            <Icon path="mdi:logout" size={1.2} />
+            <p>ログアウト</p>
+          </button>
+        </form>
       </SheetContent>
     </Sheet>
   );
