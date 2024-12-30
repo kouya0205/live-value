@@ -1,5 +1,5 @@
-import AppFooter from '@/components/MyPage/Top/Footer';
-import AppHeader from '@/components/MyPage/Top/Header';
+import AppFooter from '@/components/User/MyPage/Top/Footer';
+import AppHeader from '@/components/User/MyPage/Top/Header';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

@@ -1,15 +1,15 @@
-import AppFooter from '@/components/MyPage/Top/Footer';
-import AppHeader from '@/components/MyPage/Top/Header';
+import AppFooter from '@/components/User/MyPage/Top/Footer';
+import AppHeader from '@/components/User/MyPage/Top/Header';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'マイページ',
   description: 'LiveValueのマイページ、ここではユーザー情報の確認や設定ができます。',
-  metadataBase: new URL('https://livevalue.vercel.app/mypage'),
+  metadataBase: new URL('https://livevalue.vercel.app/user/dashboard'),
   openGraph: {
     title: 'マイページ',
     description: 'LiveValueのマイページ、ここではユーザー情報の確認や設定ができます。',
-    url: 'https://livevalue.vecerl.app/mypage',
+    url: 'https://livevalue.vecerl.app/user/dashboard',
     images: [
       {
         url: 'https://livevalue.vecerl.app/default-og-image.jpg',

@@ -35,10 +35,10 @@ export async function emailLogin(prevState: unknown, formData: FormData) {
     });
   }
 
-  redirect('/mypage');
+  redirect('/user/dashboard');
 }
 
-export async function signup(prevState: unknown, formData: FormData) {
+export async function userSignup(prevState: unknown, formData: FormData) {
   const supabase = await createClient();
   const submission = parseWithZod(formData, {
     schema: signupSchema,
@@ -51,13 +51,13 @@ export async function signup(prevState: unknown, formData: FormData) {
   const email = formData.get('email') as string;
   const username = formData.get('username') as string;
   const password = formData.get('password') as string;
-
   const { error } = await supabase.auth.signUp({
     email,
     password,
     options: {
       data: {
         username,
+        role: true,
       },
     },
   });
@@ -71,7 +71,7 @@ export async function signup(prevState: unknown, formData: FormData) {
     });
   }
 
-  redirect('/auth/check-invite-email');
+  redirect('/user/auth/check-invite-email');
 }
 
 export async function socialSignIn(provider: Provider) {
@@ -87,7 +87,7 @@ export async function socialSignIn(provider: Provider) {
   };
 
   if (!provider) {
-    return redirect('/auth');
+    return redirect('/user/auth');
   }
   const supabase = await createClient();
   const { data, error } = await supabase.auth.signInWithOAuth({
@@ -97,7 +97,7 @@ export async function socialSignIn(provider: Provider) {
         access_type: 'offline',
         prompt: 'select_account',
       },
-      redirectTo: getURL('/auth/callback'),
+      redirectTo: getURL('/user/auth/callback'),
     },
   });
   if (error) {
@@ -109,7 +109,7 @@ export async function socialSignIn(provider: Provider) {
 export async function signOut() {
   const supabase = await createClient();
   await supabase.auth.signOut();
-  redirect('/mypage');
+  redirect('/user/auth');
 }
 
 // export async function updateProfile(values: any) {

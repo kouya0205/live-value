@@ -3,7 +3,7 @@ import { type AuthConfig } from 'types';
 export const authConfig: AuthConfig = {
   tab: {
     login: 'ログイン',
-    signup: '会員登録',
+    signup: '新規登録',
   },
   login: {
     title: 'ログイン',
@@ -19,16 +19,16 @@ export const authConfig: AuthConfig = {
     },
   },
   signup: {
-    title: '会員登録',
-    description: '以下の情報を入力し、会員登録を行なってください。',
-    button: '会員登録',
+    title: '新規登録',
+    description: '以下の情報を入力し、新規登録を行なってください。',
+    button: '新規登録',
     email: {
       label: 'メールアドレス',
-      placeholder: 'example@xxx.com',
+      placeholder: 'example@gmail.com',
     },
     username: {
-      label: 'ユーザー名',
-      placeholder: 'ユーザー名を入力',
+      label: '氏名',
+      placeholder: '山田 太郎',
     },
     password: {
       label: 'パスワード',

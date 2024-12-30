@@ -34,7 +34,7 @@ export default function HamburgerMenu({ navLinks }: { navLinks: { title: string;
             </Link>
           ))}
         </nav>
-        <Link href="/auth" className="items-center flex justify-center w-full pt-2">
+        <Link href="/user/auth" className="items-center flex justify-center w-full pt-2">
           <Button className="text-sm py-2 px-3 lg:py-3 lg:px-4 font-bold w-full">
             ログイン/新規登録
           </Button>

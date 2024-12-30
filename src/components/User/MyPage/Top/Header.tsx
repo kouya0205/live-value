@@ -11,7 +11,7 @@ import {
 } from '@mdi/js';
 import Icon from '@mdi/react';
 import { createClient } from '@/utils/supabase/server';
-import AppHamburgerMenu from '@/components/MyPage/Top/HamburgerMenu';
+import AppHamburgerMenu from '@/components/User/MyPage/Top/HamburgerMenu';
 
 const navLinks: Array<{ title: string; href: string; icon: string }> = [
   { title: 'アップロード', href: '/upload', icon: mdiUploadBoxOutline },
@@ -33,7 +33,7 @@ export default async function AppHeader() {
     <header className="fixed w-full z-[999] shadow-md transition-all duration-300">
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-16">
-          <Link href="/mypage" className="flex-shrink-0">
+          <Link href="/user/dashboard" className="flex-shrink-0">
             <Image src="/images/top/logo-black.webp" alt="Logo" width={140} height={45} />
           </Link>
           <div className="flex h-full items-center">
