@@ -24,7 +24,7 @@ export const AuthForm = () => {
               <CardDescription>{authConfig.login.description}</CardDescription>
             </CardHeader>
             <LoginForm />
-            <CardContent></CardContent>
+            <CardContent />
           </Card>
         </TabsContent>
         <TabsContent value="signup">
@@ -34,7 +34,7 @@ export const AuthForm = () => {
               <CardDescription>{authConfig.signup.description}</CardDescription>
             </CardHeader>
             <SignupForm />
-            <CardContent></CardContent>
+            <CardContent />
           </Card>
         </TabsContent>
       </Tabs>

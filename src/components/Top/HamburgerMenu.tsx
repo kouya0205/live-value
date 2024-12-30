@@ -23,7 +23,7 @@ export default function HamburgerMenu({ navLinks }: { navLinks: { title: string;
             className="h-auto object-contain"
           />
         </SheetHeader>
-        <SheetTitle></SheetTitle>
+        <SheetTitle />
         <nav className="flex flex-col  text-[12px] font-medium text-gray-600 gap-2">
           {navLinks.map((link) => (
             <Link
