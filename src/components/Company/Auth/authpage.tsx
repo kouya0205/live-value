@@ -1,7 +1,6 @@
 'use client';
-import { SocialAccount } from '@/components/auth/socialAccount';
-import { LoginForm } from '@/components/auth/loginForm';
-import { SignupForm } from '@/components/auth/signupForm';
+import { LoginForm } from '@/components/Company/Auth/loginForm';
+import { SignupForm } from '@/components/Company/Auth/signupForm';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { authConfig } from '@/config/auth';
@@ -25,9 +24,7 @@ export const AuthForm = () => {
               <CardDescription>{authConfig.login.description}</CardDescription>
             </CardHeader>
             <LoginForm />
-            <CardContent>
-              <SocialAccount tab="login" />
-            </CardContent>
+            <CardContent></CardContent>
           </Card>
         </TabsContent>
         <TabsContent value="signup">
@@ -37,9 +34,7 @@ export const AuthForm = () => {
               <CardDescription>{authConfig.signup.description}</CardDescription>
             </CardHeader>
             <SignupForm />
-            <CardContent>
-              <SocialAccount tab="signup" />
-            </CardContent>
+            <CardContent></CardContent>
           </Card>
         </TabsContent>
       </Tabs>

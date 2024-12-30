@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 import { siteConfig } from '@/config/site';
 import React from 'react';
-import AuthHeader from '@/components/auth/AuthHeader';
+import AuthHeader from '@/components/User/Auth/AuthHeader';
 
 export const metadata: Metadata = {
   title: siteConfig.auth.title,

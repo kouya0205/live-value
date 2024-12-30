@@ -64,16 +64,17 @@ export const LoginForm: FC = () => {
             <div className="text-xs text-red-600">{fields.password.errors}</div>
           </div>
           <div className="space-y-1">
-            <Link href="/auth/forgot-password" className="text-xs text-[#349BD1] hover:underline">
+            <Link
+              href="/user/auth/forgot-password"
+              className="text-xs text-[#349BD1] hover:underline">
               パスワードを忘れた方はこちら
             </Link>
           </div>
         </CardContent>
         <CardFooter className="flex flex-col py-0">
-          <Button className="w-full bg-[#349BD1] text-white hover:bg-[#38B8EA]">
+          <Button className="w-full bg-[#349BD1] text-white font-bold hover:bg-[#38B8EA]">
             {authConfig.login.button} <CircleChevronRight className="ml-2 h-4 w-4" />
           </Button>
-          <Separate />
         </CardFooter>
       </form>
     </>

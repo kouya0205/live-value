@@ -42,7 +42,7 @@ export const siteConfig: SiteConfig = {
   auth: {
     title: 'ログイン/新規登録',
     description: 'Hack GALAのチームカレーのログイン/新規登録ページです。',
-    url: 'https://curry-app-hackgala.vercel.app/auth',
+    url: 'https://curry-app-hackgala.vercel.app/user/auth',
   },
   profile: {
     title: 'プロフィール',

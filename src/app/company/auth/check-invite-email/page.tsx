@@ -1,17 +1,18 @@
 import { createClient } from '@/utils/supabase/server';
 import { redirect } from 'next/navigation';
 
-export default async function AppHome() {
+export default async function CheckInviteEmailPage() {
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
-  if (!user) {
-    redirect('/auth');
+
+  if (user) {
+    redirect('/user/dashboard');
   }
   return (
     <div>
-      <div className="flex flex-col items-center justify-center py-2">mypageです。</div>
+      <h1>Check Invite Email</h1>
     </div>
   );
 }

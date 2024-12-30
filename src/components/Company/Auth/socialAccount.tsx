@@ -64,7 +64,7 @@ export function SocialAccount({ tab }: { tab: 'login' | 'signup' }) {
           onClick={async () => {
             await socialSignIn(provider.name);
           }}
-          className={`flex items-center justify-start space-x-2 pl-7 ${provider.className}`}>
+          className={`flex items-center justify-start space-x-2 pl-7 font-semibold ${provider.className}`}>
           {provider.icon}
           <span>
             {provider.displayName}で{tab === 'login' ? 'ログイン' : '会員登録'}

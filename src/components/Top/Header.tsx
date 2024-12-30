@@ -36,7 +36,12 @@ export default async function Header({ user }: { user: User }) {
                 </Link>
               ))}
             </nav>
-            <Link href="/auth" className="pr-2 lg:pr-4">
+            <Link
+              href="/company/auth"
+              className="pr-2 lg:pr-4 text-xs max-w-[72px] text-center hover:underline">
+              企業の方はこちら
+            </Link>
+            <Link href="/user/auth" className="pr-2 lg:pr-4">
               <Button className="text-sm py-2 px-3 lg:py-3 lg:px-4 font-bold">
                 ログイン/新規登録
               </Button>
