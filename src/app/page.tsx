@@ -7,6 +7,7 @@ export default async function Home() {
   const {
     data: { user },
   } = await supabase.auth.getUser();
+
   return (
     <>
       <Header user={user} />

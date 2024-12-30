@@ -11,7 +11,7 @@ const navLinks: Array<{ title: string; id: string }> = [
   { title: 'お問い合わせ', id: '#contact' },
 ];
 
-export default async function Header({ user }: { user: User }) {
+export default async function Header({ user }: { user: User | null }) {
   return (
     <header className="fixed w-full z-[999] shadow-md transition-all duration-300">
       <div className="px-3 lg:px-8 py-1">
