@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { FC } from 'react';
 
 import { authConfig } from '@/config/auth';
-import { signupSchema } from '@/config/schema';
-import { userSignup } from '@/hooks/useActions';
+import { companySignupSchema } from '@/config/schema';
+import { companySignup } from '@/hooks/useActions';
 
 import { useActionState } from 'react';
 import { CardContent, CardFooter } from '@/components/ui/card';
@@ -14,17 +14,16 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Button } from '@/components/ui/button';
-import { Separate } from '@/components/separate';
 
 export const SignupForm: FC = () => {
-  const [lastResult, action] = useActionState(userSignup, undefined);
+  const [lastResult, action] = useActionState(companySignup, undefined);
   const [form, fields] = useForm({
     // 前回の送信結果を同期
     lastResult,
 
     // クライアントでバリデーション・ロジックを再利用する
     onValidate({ formData }) {
-      return parseWithZod(formData, { schema: signupSchema });
+      return parseWithZod(formData, { schema: companySignupSchema });
     },
 
     // blurイベント発生時にフォームを検証する
@@ -38,11 +37,11 @@ export const SignupForm: FC = () => {
             {form.errors}
           </div>
           <div className="space-y-1">
-            <Label htmlFor="email">{authConfig.signup.email.label}</Label>
+            <Label htmlFor="email">{authConfig.companySignup.email.label}</Label>
             <Input
               id="email"
               type="email"
-              placeholder={authConfig.signup.email.placeholder}
+              placeholder={authConfig.companySignup.email.placeholder}
               className="focus:border-[#349BD1] focus:ring-[#349BD1]"
               key={fields.email.key}
               name={fields.email.name}
@@ -51,11 +50,11 @@ export const SignupForm: FC = () => {
             <div className="text-xs text-red-600">{fields.email.errors}</div>
           </div>
           <div className="space-y-1">
-            <Label htmlFor="username">{authConfig.signup.username.label}</Label>
+            <Label htmlFor="username">{authConfig.companySignup.companyName.label}</Label>
             <Input
               id="username"
               type="text"
-              placeholder={authConfig.signup.username.placeholder}
+              placeholder={authConfig.companySignup.companyName.placeholder}
               className="focus:border-[#349BD1] focus:ring-[#349BD1]"
               key={fields.username.key}
               name={fields.username.name}
@@ -64,11 +63,11 @@ export const SignupForm: FC = () => {
             <div className="text-xs text-red-600">{fields.username.errors}</div>
           </div>
           <div className="space-y-1">
-            <Label htmlFor="password">{authConfig.signup.password.label}</Label>
+            <Label htmlFor="password">{authConfig.companySignup.password.label}</Label>
             <Input
               id="password"
               type="password"
-              placeholder={authConfig.signup.password.placeholder}
+              placeholder={authConfig.companySignup.password.placeholder}
               className="focus:border-[#349BD1] focus:ring-[#349BD1]"
               key={fields.password.key}
               name={fields.password.name}
@@ -77,11 +76,13 @@ export const SignupForm: FC = () => {
             <div className="text-xs text-red-600">{fields.password.errors}</div>
           </div>
           <div className="space-y-1">
-            <Label htmlFor="confirmPassword">{authConfig.signup.confirmPassword.label}</Label>
+            <Label htmlFor="confirmPassword">
+              {authConfig.companySignup.confirmPassword.label}
+            </Label>
             <Input
               id="confirmPassword"
               type="password"
-              placeholder={authConfig.signup.confirmPassword.placeholder}
+              placeholder={authConfig.companySignup.confirmPassword.placeholder}
               className="focus:border-[#349BD1] focus:ring-[#349BD1]"
               key={fields.confirmPassword.key}
               name={fields.confirmPassword.name}
@@ -119,7 +120,7 @@ export const SignupForm: FC = () => {
         </CardContent>
         <CardFooter className="flex flex-col py-0">
           <Button className="w-full bg-[#349BD1] text-white font-bold hover:bg-[#38B8EA]">
-            {authConfig.signup.button} <CircleChevronRight className="ml-2 h-4 w-4" />
+            {authConfig.companySignup.button} <CircleChevronRight className="ml-2 h-4 w-4" />
           </Button>
         </CardFooter>
       </form>

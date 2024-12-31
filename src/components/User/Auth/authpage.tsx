@@ -33,8 +33,8 @@ export const AuthForm = () => {
         <TabsContent value="signup">
           <Card>
             <CardHeader className="pb-4">
-              <CardTitle>{authConfig.signup.title}</CardTitle>
-              <CardDescription>{authConfig.signup.description}</CardDescription>
+              <CardTitle>{authConfig.userSignup.title}</CardTitle>
+              <CardDescription>{authConfig.userSignup.description}</CardDescription>
             </CardHeader>
             <SignupForm />
             <CardContent>

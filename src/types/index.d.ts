@@ -68,7 +68,7 @@ export type AuthConfig = {
       placeholder: string;
     };
   };
-  signup: {
+  userSignup: {
     title: string;
     description: string;
     button: string;
@@ -89,6 +89,27 @@ export type AuthConfig = {
       placeholder: string;
     };
   };
+  companySignup: {
+    title: string;
+    description: string;
+    button: string;
+    email: {
+      label: string;
+      placeholder: string;
+    };
+    companyName: {
+      label: string;
+      placeholder: string;
+    };
+    password: {
+      label: string;
+      placeholder: string;
+    };
+    confirmPassword: {
+      label: string;
+      placeholder: string;
+    };
+  };
 };
 
 export type TabConfig = {
@@ -97,10 +118,11 @@ export type TabConfig = {
 };
 
 export type Profile = {
-  id: string | undefined;
-  username: string | undefined;
+  id: string;
+  username: string;
   email: string;
   avatar_url: string | undefined;
+  role: boolean;
 };
 
 export type EditedProfile = {

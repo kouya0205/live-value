@@ -5,9 +5,10 @@ import { type Provider } from '@supabase/supabase-js';
 import { redirect } from 'next/navigation';
 
 import { supabaseErrorMessages } from '@/config/errorMessage';
-import { loginSchema, signupSchema } from '@/config/schema';
+import { companySignupSchema, loginSchema, signupSchema } from '@/config/schema';
 
 import { createClient } from '@/utils/supabase/server';
+import { Profile } from 'types';
 
 export async function emailLogin(prevState: unknown, formData: FormData) {
   const supabase = await createClient();
@@ -33,6 +34,25 @@ export async function emailLogin(prevState: unknown, formData: FormData) {
     return submission.reply({
       formErrors: [errorMessage],
     });
+  }
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  const { data: profile, error: profileError } = await supabase
+    .from('profiles')
+    .select()
+    .eq('id', user?.id)
+    .single();
+
+  if (profileError) {
+    return submission.reply({
+      formErrors: ['プロフィールの取得に失敗しました'],
+    });
+  }
+
+  if (profile?.role === false) {
+    return redirect('/company/dashboard');
   }
 
   redirect('/user/dashboard');
@@ -72,6 +92,42 @@ export async function userSignup(prevState: unknown, formData: FormData) {
   }
 
   redirect('/user/auth/check-invite-email');
+}
+
+export async function companySignup(prevState: unknown, formData: FormData) {
+  const supabase = await createClient();
+  const submission = parseWithZod(formData, {
+    schema: companySignupSchema,
+  });
+
+  if (submission.status !== 'success') {
+    return submission.reply();
+  }
+
+  const email = formData.get('email') as string;
+  const username = formData.get('username') as string;
+  const password = formData.get('password') as string;
+  const { error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: {
+      data: {
+        username,
+        role: false,
+      },
+    },
+  });
+
+  if (error) {
+    const errorMessage = error.code
+      ? supabaseErrorMessages[error.code]
+      : '不明なエラーが発生しました';
+    return submission.reply({
+      formErrors: [errorMessage],
+    });
+  }
+
+  redirect('/company/auth/check-invite-email');
 }
 
 export async function socialSignIn(provider: Provider) {
