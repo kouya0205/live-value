@@ -18,7 +18,7 @@ export const authConfig: AuthConfig = {
       placeholder: '••••••',
     },
   },
-  signup: {
+  userSignup: {
     title: '新規登録',
     description: '以下の情報を入力し、新規登録を行なってください。',
     button: '新規登録',
@@ -29,6 +29,27 @@ export const authConfig: AuthConfig = {
     username: {
       label: '氏名',
       placeholder: '山田 太郎',
+    },
+    password: {
+      label: 'パスワード',
+      placeholder: '••••••',
+    },
+    confirmPassword: {
+      label: 'パスワード(確認用)',
+      placeholder: '••••••',
+    },
+  },
+  companySignup: {
+    title: '新規登録',
+    description: '以下の情報を入力し、新規登録を行なってください。',
+    button: '新規登録',
+    email: {
+      label: 'メールアドレス',
+      placeholder: 'company@gmail.com',
+    },
+    companyName: {
+      label: '会社名',
+      placeholder: '株式会社〇〇',
     },
     password: {
       label: 'パスワード',

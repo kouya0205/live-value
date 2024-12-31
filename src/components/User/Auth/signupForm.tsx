@@ -38,11 +38,11 @@ export const SignupForm: FC = () => {
             {form.errors}
           </div>
           <div className="space-y-1">
-            <Label htmlFor="email">{authConfig.signup.email.label}</Label>
+            <Label htmlFor="email">{authConfig.userSignup.email.label}</Label>
             <Input
               id="email"
               type="email"
-              placeholder={authConfig.signup.email.placeholder}
+              placeholder={authConfig.userSignup.email.placeholder}
               className="focus:border-[#349BD1] focus:ring-[#349BD1]"
               key={fields.email.key}
               name={fields.email.name}
@@ -51,11 +51,11 @@ export const SignupForm: FC = () => {
             <div className="text-xs text-red-600">{fields.email.errors}</div>
           </div>
           <div className="space-y-1">
-            <Label htmlFor="username">{authConfig.signup.username.label}</Label>
+            <Label htmlFor="username">{authConfig.userSignup.username.label}</Label>
             <Input
               id="username"
               type="text"
-              placeholder={authConfig.signup.username.placeholder}
+              placeholder={authConfig.userSignup.username.placeholder}
               className="focus:border-[#349BD1] focus:ring-[#349BD1]"
               key={fields.username.key}
               name={fields.username.name}
@@ -64,11 +64,11 @@ export const SignupForm: FC = () => {
             <div className="text-xs text-red-600">{fields.username.errors}</div>
           </div>
           <div className="space-y-1">
-            <Label htmlFor="password">{authConfig.signup.password.label}</Label>
+            <Label htmlFor="password">{authConfig.userSignup.password.label}</Label>
             <Input
               id="password"
               type="password"
-              placeholder={authConfig.signup.password.placeholder}
+              placeholder={authConfig.userSignup.password.placeholder}
               className="focus:border-[#349BD1] focus:ring-[#349BD1]"
               key={fields.password.key}
               name={fields.password.name}
@@ -77,11 +77,11 @@ export const SignupForm: FC = () => {
             <div className="text-xs text-red-600">{fields.password.errors}</div>
           </div>
           <div className="space-y-1">
-            <Label htmlFor="confirmPassword">{authConfig.signup.confirmPassword.label}</Label>
+            <Label htmlFor="confirmPassword">{authConfig.userSignup.confirmPassword.label}</Label>
             <Input
               id="confirmPassword"
               type="password"
-              placeholder={authConfig.signup.confirmPassword.placeholder}
+              placeholder={authConfig.userSignup.confirmPassword.placeholder}
               className="focus:border-[#349BD1] focus:ring-[#349BD1]"
               key={fields.confirmPassword.key}
               name={fields.confirmPassword.name}
@@ -119,7 +119,7 @@ export const SignupForm: FC = () => {
         </CardContent>
         <CardFooter className="flex flex-col py-0">
           <Button className="w-full bg-[#349BD1] text-white font-bold hover:bg-[#38B8EA]">
-            {authConfig.signup.button} <CircleChevronRight className="ml-2 h-4 w-4" />
+            {authConfig.userSignup.button} <CircleChevronRight className="ml-2 h-4 w-4" />
           </Button>
           <Separate />
         </CardFooter>
