@@ -29,6 +29,20 @@ export async function GET(request: NextRequest) {
     }
   }
 
+  const supabase = await createClient();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('role')
+    .eq('id', user?.id)
+    .single();
+
+  if (profile?.role === false) {
+    redirectTo.pathname = '/company/dashboard';
+    return NextResponse.redirect(redirectTo);
+  }
   // return the user to an error page with some instructions
   redirectTo.pathname = '/error';
   return NextResponse.redirect(redirectTo);
