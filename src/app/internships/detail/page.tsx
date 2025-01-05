@@ -35,21 +35,22 @@ export default function Page() {
 
     return(
     <>
-        <div className="bg-gray-300 pt-32">
-            <div className="bg-white ml-32 mr-[720] py-5">
-                <div className="text-xl ml-5 mr-32 font-bold">
+        <div className="bg-gray-200 flex flex-col items-center">
+            <div className="text-xs text-gray-500">長期インターン・有給インターンシップ募集サイト　Infraインターン</div>
+            <div className="bg-white w-[800]">
+                <div className="text-xl font-bold">
                 【圧倒的成長をしたい学生求む！】起業家多数輩出急成長ベンチャーで、経営者層を相手に熱い仲間と企業課題を解決しよう！最強のガクチカをつくれる！
                 </div>
-                <div className="m-5 flex flex-row">
+                <div className="p-5 flex flex-row">
                     <Image src="/images/internships/circu.png" alt="circu"width={100} height={100} className="border"/>
                     <div className="flex flex-col">
-                        <div className="mx-5 text-[#009688] font-bold text-lg">
+                        <div className="px-5 text-[#009688] font-bold text-lg">
                             株式会社サーキュレーション
                         </div>
-                        <Link href="https://circu.co.jp/" className="text-gray-500 mx-5 text-xs">https://circu.co.jp/</Link>
+                        <Link href="https://circu.co.jp/" className="text-gray-500 px-5 text-xs">https://circu.co.jp/</Link>
                     </div>
                 </div>
-                <div className="flex flex-col mx-5 gap-1">
+                <div className="flex flex-col px-5 gap-1">
                     <div className="text-xs">東京都東京都渋谷区神宮前</div>
                     <div className="text-xs">応募対応時間</div>
                     <div className="text-xs">応募対応率</div>
@@ -60,9 +61,9 @@ export default function Page() {
                 </div>
             </div>
 
-            <div className="bg-white ml-32 mr-[720] mb-20">
+            <div className="bg-white w-[800]">
                 <div className="p-5 flex flex-col gap-2">
-                    <h2 className="font-bold">インターン勤務条件</h2>
+                    <div className="font-bold">インターン勤務条件</div>
                     {conditions.map((cond, index) => {
                         return(
                         <li className="list-none border-b border-gray-400 w-[720] flex flex-row justify-between" key={index}>
@@ -94,7 +95,7 @@ export default function Page() {
                             <Button className="rounded-r-full bg-[#009688] h-[48] w-[236] text-white font-bold">応募画面へ</Button>
                         </div>
                         <div>
-                            <Button className="rounded-full border-2 h-[48] w-[298]">お気に入り追加</Button>
+                            <Button className="rounded-full border-2 h-[48] w-[298] bg-white text-gray-400">お気に入り追加</Button>
                         </div>
                     </div>
                 <div className="m-5">
@@ -147,7 +148,7 @@ export default function Page() {
                                 <span className="font-bold">山田　太郎</span>
                                 <span>／チームマネージャー</span>
                             </div>
-                            <div className="w-[900] bg-gray-200 p-3 text-sm">
+                            <div className="w-[640] bg-gray-200 p-3 text-sm">
                                 『社会で通用するスキルを、同世代と差をつけ、最速で身につけたい』あなたへ。 サーキュレーションのサービスである「プロシェアリング」は企業の経営課題の本質的な部分を解決するサービスです。 故に、経営者や取締役といったキーマンと直接関わる機会が多く、ビジネスの現場感を肌で感じることができるので、20代で圧倒的な成長がしたい！将来は起業したい！と思っている皆様には良い学び・経験ができると思います。
                             </div>
                         </div>
@@ -173,25 +174,25 @@ export default function Page() {
                             <Button className="rounded-r-full bg-[#009688] h-[48] w-[236] text-white font-bold">応募画面へ</Button>
                         </div>
                         <div>
-                            <Button className="rounded-full border-2 h-[48] w-[298]">お気に入り追加</Button>
+                            <Button className="rounded-full border-2 h-[48] w-[298] bg-white text-gray-400">お気に入り追加</Button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="ml-32 mr-[720] bg-white">
+            <div className=" w-[800] bg-white">
                 <div className="mx-5">
                     <h2 className="font-bold">株式会社サーキュレーションへの質問</h2>
                     <div className="flex justify-center text-[#009688] text-sm">
                         質問を受け付けています！
                     </div>
                     <div className="flex flex-col items-center gap-2">
-                        <Button className="rounded-full border-2 border-[#009688] h-[48] w-[298] text-[#009688]">質問を投稿する</Button>
+                        <Button className="rounded-full border-2 border-[#009688] h-[48] w-[298] bg-white text-[#009688]">質問を投稿する</Button>
                         <div className="text-xs">質問を投稿するにはログインが必要です</div>
                     </div>
                 </div>
             </div>
 
-            <div className="ml-32 mr-[720]">
+            <div className="w-[800]">
                 <div className="flex flex-row items-center justify-center bg-[#009688] rounded-t-2xl h-14">
                     <div className="rounded-full bg-[#00695c] text-white w-12 h-12 place-content-center font-semibold flex items-center justify-center">
                         <p>無料</p>
