@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button"
 import { Card, CardHeader, CardTitle } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
 import Image from "next/image"
@@ -89,11 +90,11 @@ export default function Page() {
                             <div className="font-bold text-[#009688]">カンタン応募</div>
                         </div>
                         <div>
-                            <button className="rounded-l-full bg-[#00695c] h-[48] w-[62] text-white font-bold">無料</button>
-                            <button className="rounded-r-full bg-[#009688] h-[48] w-[236] text-white font-bold">応募画面へ</button>
+                            <Button className="rounded-l-full bg-[#00695c] h-[48] w-[62] text-white font-bold">無料</Button>
+                            <Button className="rounded-r-full bg-[#009688] h-[48] w-[236] text-white font-bold">応募画面へ</Button>
                         </div>
                         <div>
-                            <button className="rounded-full border-2 h-[48] w-[298]">お気に入り追加</button>
+                            <Button className="rounded-full border-2 h-[48] w-[298]">お気に入り追加</Button>
                         </div>
                     </div>
                 <div className="m-5">
@@ -168,11 +169,11 @@ export default function Page() {
                             <div className="font-bold text-[#009688]">カンタン応募</div>
                         </div>
                         <div>
-                            <button className="rounded-l-full bg-[#00695c] h-[48] w-[62] text-white font-bold">無料</button>
-                            <button className="rounded-r-full bg-[#009688] h-[48] w-[236] text-white font-bold">応募画面へ</button>
+                            <Button className="rounded-l-full bg-[#00695c] h-[48] w-[62] text-white font-bold">無料</Button>
+                            <Button className="rounded-r-full bg-[#009688] h-[48] w-[236] text-white font-bold">応募画面へ</Button>
                         </div>
                         <div>
-                            <button className="rounded-full border-2 h-[48] w-[298]">お気に入り追加</button>
+                            <Button className="rounded-full border-2 h-[48] w-[298]">お気に入り追加</Button>
                         </div>
                     </div>
                 </div>
@@ -184,7 +185,7 @@ export default function Page() {
                         質問を受け付けています！
                     </div>
                     <div className="flex flex-col items-center gap-2">
-                        <button className="rounded-full border-2 border-[#009688] h-[48] w-[298] text-[#009688]">質問を投稿する</button>
+                        <Button className="rounded-full border-2 border-[#009688] h-[48] w-[298] text-[#009688]">質問を投稿する</Button>
                         <div className="text-xs">質問を投稿するにはログインが必要です</div>
                     </div>
                 </div>
