@@ -1,5 +1,5 @@
+import CompanyHeader from '@/components/Company/Top/CompanyHeader';
 import AppFooter from '@/components/User/MyPage/Top/Footer';
-import AppHeader from '@/components/User/MyPage/Top/Header';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <AppHeader />
+      <CompanyHeader />
       <main className="min-h-screen pt-16">{children}</main>
       <AppFooter />
     </>

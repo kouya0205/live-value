@@ -16,7 +16,7 @@ import { Separate } from '@/components/separate';
 import { useActionState } from 'react';
 
 export const LoginForm: FC = () => {
-  const [lastResult, action] = useActionState(emailLogin, undefined);
+  const [lastResult, action, isPending] = useActionState(emailLogin, undefined);
   const [form, fields] = useForm({
     // 前回の送信結果を同期
     lastResult,
@@ -72,8 +72,11 @@ export const LoginForm: FC = () => {
           </div>
         </CardContent>
         <CardFooter className="flex flex-col py-0">
-          <Button className="w-full bg-[#349BD1] text-white font-bold hover:bg-[#38B8EA]">
-            {authConfig.login.button} <CircleChevronRight className="ml-2 h-4 w-4" />
+          <Button
+            className="w-full bg-[#349BD1] text-white font-bold hover:bg-[#38B8EA]"
+            disabled={isPending}>
+            {isPending ? 'ログイン中...' : authConfig.login.button}{' '}
+            <CircleChevronRight className="ml-2 h-4 w-4" />
           </Button>
         </CardFooter>
       </form>

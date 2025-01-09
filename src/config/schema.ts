@@ -68,3 +68,39 @@ export const profileSchema = z.object({
     .string({ required_error: '氏名を入力してください' })
     .min(3, 'ユーザー名は3文字以上で入力してください'),
 });
+
+export const projectSchema = z.object({
+  title: z
+    .string({ required_error: '案件名を入力してください' })
+    .min(3, '案件名は3文字以上で入力してください'),
+  description: z
+    .string({ required_error: '案件内容を入力してください' })
+    .min(3, '案件内容は3文字以上で入力してください'),
+  start_date: z
+    .string({ required_error: '開始日を入力してください' })
+    .regex(/^\d{4}-\d{2}-\d{2}$/, '日付の形式が正しくありません'),
+  end_date: z
+    .string({ required_error: '終了日を入力してください' })
+    .regex(/^\d{4}-\d{2}-\d{2}$/, '日付の形式が正しくありません'),
+  capacity: z
+    .number({ required_error: '募集人数を入力してください' })
+    .int('募集人数は整数で入力してください')
+    .min(1, '募集人数は1以上で入力してください'),
+  location: z
+    .string({ required_error: '勤務地を入力してください' })
+    .min(3, '勤務地は3文字以上で入力してください'),
+  salary_type: z.enum(['hourly', 'daily', 'monthly'], {
+    required_error: '給与タイプを選択してください',
+  }),
+  salary_min: z
+    .string({ required_error: '最低給与を入力してください' })
+    .regex(/^\d+$/, '給与は数字で入力してください'),
+  salary_max: z
+    .string({ required_error: '最高給与を入力してください' })
+    .regex(/^\d+$/, '給与は数字で入力してください'),
+  is_published: z.boolean(),
+  quota: z
+    .number({ required_error: '募集人数を入力してください' })
+    .int('募集人数は整数で入力してください')
+    .min(1, '募集人数は1以上で入力してください'),
+});
