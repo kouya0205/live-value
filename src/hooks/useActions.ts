@@ -168,6 +168,36 @@ export async function signOut() {
   redirect('/user/auth');
 }
 
+export async function newProjects(prevState: unknown, formData: FormData) {
+  const supabase = await createClient();
+  const { data: user } = await supabase.auth.getUser();
+  const submission = parseWithZod(formData, {
+    schema: companySignupSchema,
+  });
+  console.log(formData);
+
+  if (submission.status !== 'success') {
+    return submission.reply();
+  }
+
+  const company_id = user?.id;
+  const data = {
+    title: formData.get('title') as string,
+    description: formData.get('description') as string,
+    company_id,
+  };
+
+  const { error } = await supabase.from('internships').insert(data);
+
+  if (error) {
+    return submission.reply({
+      formErrors: ['案件の新規追加に失敗しました'],
+    });
+  }
+
+  redirect('/company/dashboard');
+}
+
 // export async function updateProfile(values: any) {
 //   try {
 //     const supabase = await createClient();
