@@ -17,7 +17,7 @@ import { Button } from '@/components/ui/button';
 import { Separate } from '@/components/separate';
 
 export const SignupForm: FC = () => {
-  const [lastResult, action] = useActionState(userSignup, undefined);
+  const [lastResult, action, isPending] = useActionState(userSignup, undefined);
   const [form, fields] = useForm({
     // 前回の送信結果を同期
     lastResult,
@@ -118,8 +118,17 @@ export const SignupForm: FC = () => {
           <div className="text-xs text-red-600">{fields.acceptCheckbox.errors}</div>
         </CardContent>
         <CardFooter className="flex flex-col py-0">
-          <Button className="w-full bg-[#349BD1] text-white font-bold hover:bg-[#38B8EA]">
-            {authConfig.userSignup.button} <CircleChevronRight className="ml-2 h-4 w-4" />
+          <Button
+            className="w-full bg-[#349BD1] text-white font-bold hover:bg-[#38B8EA]"
+            disabled={isPending}>
+            {isPending ? (
+              '登録中...'
+            ) : (
+              <>
+                {' '}
+                {authConfig.userSignup.button} <CircleChevronRight className="ml-2 h-4 w-4" />
+              </>
+            )}
           </Button>
           <Separate />
         </CardFooter>
