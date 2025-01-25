@@ -31,8 +31,9 @@ export default async function CompanyHome() {
   console.log(caseList);
   return (
     <div>
-      <NewRegister />
-      <ProjectsList caseList={caseList} />
+      {/* <NewRegister />
+      <ProjectsList caseList={caseList} /> */}
+      {/* <NoteList articles={articles} /> */}
     </div>
   );
 }
