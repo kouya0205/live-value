@@ -1,9 +1,13 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 
 import { User } from '@supabase/supabase-js';
 import { Button } from '@/components/ui/button';
 import HamburgerMenu from '@/components/Top/HamburgerMenu';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
 
 const navLinks: Array<{ title: string; id: string }> = [
   { title: '概要', id: '#about' },
@@ -11,18 +15,34 @@ const navLinks: Array<{ title: string; id: string }> = [
   { title: 'お問い合わせ', id: '#contact' },
 ];
 
-export default async function Header({ user }: { user: User | null }) {
+export default function Header({ user }: { user: User | null }) {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
+
   return (
     <header className="fixed w-full z-[999] shadow-md transition-all duration-300">
       <div className="px-3 lg:px-8 py-1">
         <div className="flex items-center justify-between lg:justify-around h-16">
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/images/top/logo-black.webp"
+              src={`${theme === 'dark' ? '/images/top/4' : '/images/top/5'}.webp`}
               alt="Logo"
-              width={140}
-              height={45}
-              className="lg:w-36 lg:h-[45px] w-28 h-9"
+              width={240}
+              height={80}
+              className="cursor-pointer hidden sm:block sm:w-32 lg:w-48"
+            />
+            <Image
+              src={`${theme === 'dark' ? '/images/top/5' : '/images/top/6'}.webp`}
+              alt="Logo"
+              width={240}
+              height={80}
+              className="cursor-pointer block sm:hidden w-14"
             />
           </Link>
           <div className="flex h-full items-center">

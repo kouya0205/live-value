@@ -1,4 +1,5 @@
 import HamburgerMenu from '@/components/Top/HamburgerMenu';
+import { signOut } from '@/hooks/useActions';
 import Link from 'next/link';
 
 export default async function CompanyHeader() {
@@ -22,6 +23,9 @@ export default async function CompanyHeader() {
                   {link.title}
                 </Link>
               ))}
+              <form action={signOut}>
+                <button className="text-[12px] font-medium text-gray-600 h-full">ログアウト</button>
+              </form>
             </nav>
             <HamburgerMenu navLinks={navLinks} />
           </div>

@@ -27,9 +27,9 @@ import Link from 'next/link';
 export default function ArticleGrid({ articles }: { articles: any[] }) {
   console.log('articles', articles);
   return (
-    <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4">
       {articles.data.contents.map((article) => (
-        <Link href={`${article.noteUrl}`}>
+        <Link href={`${article.noteUrl}`} key={article.id}>
           <article
             key={article.id}
             className="group relative rounded-lg border p-4 hover:bg-gray-50">
