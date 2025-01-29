@@ -29,9 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <>
-      <AppHeader />
-      <main className="min-h-screen pt-16">{children}</main>
-      <AppFooter />
+      <main className="min-h-screen">{children}</main>
     </>
   );
 }

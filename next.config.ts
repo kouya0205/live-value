@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
         hostname: 'assets.st-note.com',
         pathname: '/production/uploads/images/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'www.launchuicomponents.com',
+      },
     ],
     // domains: ['books.google.com', 'lh3.googleusercontent.com', 'uxdzrlzsdmmidamhidik.supabase.co'],
   },
