@@ -1,6 +1,5 @@
 import CompanyHeader from '@/components/Company/Top/CompanyHeader';
 import AppFooter from '@/components/User/MyPage/Top/Footer';
-import { DesktopSidebar, Sidebar, SidebarBody } from '@/components/ui/sidebar';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -31,7 +30,6 @@ export default function RootLayout({
   return (
     <>
       <CompanyHeader />
-      <DesktopSidebar />
       <main className="min-h-screen pt-16">{children}</main>
       <AppFooter />
     </>
