@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import { Bell, Flame, Menu } from 'lucide-react';
 import Image from 'next/image';
+import { signOut } from '@/hooks/useActions';
+import { Button } from '@/components/ui/button';
 
 export function NavBar({ isActive }: { isActive: boolean[] }) {
   const navItems: any[] = [
@@ -38,7 +40,11 @@ export function NavBar({ isActive }: { isActive: boolean[] }) {
           <div className="flex items-center space-x-4">
             <Flame className="h-6 w-6 text-orange-500" />
             <Bell className="h-6 w-6 text-gray-400" />
-            <Menu className="h-6 w-6 text-gray-400" />
+            <form action={signOut}>
+              <Button type="submit" className="h-6 w-6 text-gray-400">
+                <Menu className="h-6 w-6 text-gray-400" />
+              </Button>
+            </form>
           </div>
         </div>
       </div>
