@@ -1,16 +1,17 @@
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import SkillPreviousData from '@/components/User/Skill/skillPreviousData';
+import Link from 'next/link';
 
-export default function SkillTestSummary() {
+export default async function SkillTestSummary() {
   return (
-    <div className="space-y-6 p-6 mx-auto">
+    <div className="space-y-6 py-6 mx-auto">
       {/* 以前のテスト結果を表示する */}
-      <SkillPreviousData />
       <h1 className="text-2xl font-bold text-center text-black">テスト概要</h1>
       <div className="flex justify-center gap-2">
-        <Card className="bg-zinc-900 border-zinc-800 w-[30%]">
-          <CardContent className="p-6 font-bold">
+        <Card className="bg-zinc-800 border-zinc-700 w-[30%]">
+          <CardContent className="p-6 font-bold flex flex-col justify-between h-full">
             <div className="space-y-4">
               <div className="grid grid-cols-2 items-center gap-4">
                 <div className="text-zinc-100">提出期限</div>
@@ -22,17 +23,22 @@ export default function SkillTestSummary() {
               </div>
               <div className="grid grid-cols-2 items-center gap-4">
                 <div className="text-zinc-100">制限時間</div>
-                <div className="text-zinc-100 font-medium">60分</div>
+                <div className="text-zinc-100 font-medium">120分</div>
               </div>
               <div className="grid grid-cols-2 items-center gap-4">
                 <div className="text-zinc-100">企業名</div>
                 <div className="text-zinc-100 font-medium">Respect Carrier</div>
               </div>
             </div>
+            <Link href={`/user/skill-check/fd881963-a7d5-4326-a3a6-528ea4e2b98c`}>
+              <Button className="w-full mt-4 bg-slate-100 text-black font-bold hover:bg-slate-100">
+                テストを開始
+              </Button>
+            </Link>
           </CardContent>
         </Card>
 
-        <Card className="bg-zinc-900 border-zinc-800 w-[70%]">
+        <Card className="bg-zinc-800 border-zinc-700 w-[70%]">
           <CardHeader>
             <CardTitle className="text-xl text-center text-white">注意事項</CardTitle>
           </CardHeader>
