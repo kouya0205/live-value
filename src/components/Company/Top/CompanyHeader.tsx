@@ -10,7 +10,7 @@ export default async function CompanyHeader() {
   ];
 
   return (
-    <header className="fixed w-full z-[999] shadow-md transition-all duration-300">
+    <header className="fixed w-full z-[999] shadow-md transition-all duration-300 bg-white">
       <div className="px-3 lg:px-8 py-1">
         <div className="flex items-center justify-between lg:justify-around h-16">
           <div className="flex h-full items-center">
