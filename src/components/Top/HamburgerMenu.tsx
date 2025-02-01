@@ -18,7 +18,7 @@ export default function HamburgerMenu({ navLinks }: { navLinks: { title: string;
           <Image
             width={160}
             height={40}
-            src="/logo.svg"
+            src="/images/top/5.webp"
             alt="サイトロゴ"
             className="h-auto object-contain"
           />

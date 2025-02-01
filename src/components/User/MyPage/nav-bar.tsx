@@ -41,7 +41,7 @@ export function NavBar({ isActive }: { isActive: boolean[] }) {
             <Flame className="h-6 w-6 text-orange-500" />
             <Bell className="h-6 w-6 text-gray-400" />
             <form action={signOut}>
-              <Button type="submit" className="h-6 w-6 text-gray-400">
+              <Button className="bg-transparent">
                 <Menu className="h-6 w-6 text-gray-400" />
               </Button>
             </form>

@@ -34,7 +34,7 @@ export default async function AppHeader() {
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-16">
           <Link href="/user/dashboard" className="flex-shrink-0">
-            <Image src="/images/top/logo-black.webp" alt="Logo" width={140} height={45} />
+            <Image src="/images/top/5.webp" alt="Logo" width={140} height={45} />
           </Link>
           <div className="flex h-full items-center">
             <nav className="hidden text-[12px] font-medium text-gray-600 md:flex h-full">

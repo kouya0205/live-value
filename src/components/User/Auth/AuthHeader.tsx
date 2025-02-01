@@ -10,7 +10,7 @@ export default async function AuthHeader() {
         <Image
           width={160}
           height={40}
-          src="/images/top/logo-black.webp"
+          src="/images/top/5.webp"
           alt="サイトロゴ"
           className="h-auto object-contain"
         />

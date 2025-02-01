@@ -13,18 +13,18 @@ import { Badge } from '@/components/ui/badge';
 const previousTests = [
   {
     company: 'Respect Carrier',
-    submissionDate: '2021/10/10',
-    result: '合格',
+    submissionDate: '2025/1/4',
+    result: '1',
   },
   {
     company: 'Respect Carrier',
-    submissionDate: '2021/10/10',
-    result: '合格',
+    submissionDate: '2024/12/23',
+    result: '0',
   },
   {
     company: 'Respect Carrier',
-    submissionDate: '2021/10/10',
-    result: '合格',
+    submissionDate: '2024/10/10',
+    result: '0',
   },
 ];
 
@@ -32,7 +32,7 @@ export default function SkillPreviousData() {
   return (
     <Card className="w-full max-w-4xl mx-auto">
       <CardHeader>
-        <CardTitle className="text-xl font-bold text-center">以前のテスト結果</CardTitle>
+        <CardTitle className="text-xl font-bold text-center">過去のテスト結果</CardTitle>
       </CardHeader>
       <CardContent>
         <Table>
@@ -49,8 +49,13 @@ export default function SkillPreviousData() {
                 <TableCell className="font-medium">{test.company}</TableCell>
                 <TableCell>{test.submissionDate}</TableCell>
                 <TableCell>
-                  <Badge className="bg-green-500/10 text-green-500 hover:bg-green-500/20 hover:text-green-500">
-                    {test.result}
+                  <Badge
+                    className={
+                      test.result === '1'
+                        ? 'bg-green-500 text-green-100 hover:bg-green-600'
+                        : 'bg-red-500 text-red-100 hover:bg-red-600'
+                    }>
+                    {test.result === '1' ? '合格' : '不合格'}
                   </Badge>
                 </TableCell>
               </TableRow>
