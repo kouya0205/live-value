@@ -12,6 +12,7 @@ import { mdiAccountTie, mdiEmailOutline, mdiEyeOffOutline, mdiFileOutline, mdiLo
 import { SearchFilters } from '@/components/Company/MyPage/search-filters';
 import { Value } from '@radix-ui/react-select';
 import { Side } from '@/components/Company/MyPage/side';
+import SkillCheckPage from '@/app/user/skill-check/page';
 
 export default async function CompanyHome() {
   const supabase = await createClient();
@@ -135,7 +136,12 @@ export default async function CompanyHome() {
                 <div className="flex gap-6 justify-center">
                   <Card className="p-4 w-full justify-center">
                     <h3 className="font-bold mb-2">スキルテスト結果</h3>
-                    <div className="bg-gray-200 rounded-lg h-5/6" aria-label="スキルテスト結果のグラフ" />
+                    <Image
+                      src={'/images/top/skillcheck.png'}
+                      alt='SkillCheckResult'
+                      width={600}
+                      height={200}
+                    />
                   </Card>
 
                   <div className="w-full">
@@ -148,7 +154,7 @@ export default async function CompanyHome() {
                           width={600}
                           height={200}
                         />
-                        <div className="p-2">
+                        <div className="p-2 h-full">
                           <h3 className="text-l font-bold">{article.name}</h3>
                         </div>
                       </Card>
