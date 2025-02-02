@@ -1,5 +1,6 @@
 import HamburgerMenu from '@/components/Top/HamburgerMenu';
 import { signOut } from '@/hooks/useActions';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default async function CompanyHeader() {
@@ -14,6 +15,9 @@ export default async function CompanyHeader() {
       <div className="px-3 lg:px-8 py-1">
         <div className="flex items-center justify-between lg:justify-around h-16">
           <div className="flex h-full items-center">
+            <Link href="/company/dashboard">
+              <Image src="/images/top/6.webp" alt="logo" width={100} height={100} />
+            </Link>
             <nav className="hidden text-[12px] font-medium text-gray-600 lg:flex h-full mr-3">
               {navLinks.map((link) => (
                 <Link
@@ -23,8 +27,8 @@ export default async function CompanyHeader() {
                   {link.title}
                 </Link>
               ))}
-              <form action={signOut}>
-                <button className="text-[12px] font-medium text-gray-600 h-full">ログアウト</button>
+              <form action={signOut} className='m-3'>
+                <button className="text-[12px] font-medium text-gray-600 min-w-[80px] h-full">ログアウト</button>
               </form>
             </nav>
             <HamburgerMenu navLinks={navLinks} />
