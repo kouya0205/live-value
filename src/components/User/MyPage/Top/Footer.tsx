@@ -1,6 +1,6 @@
 export default async function AppFooter() {
   return (
-    <footer className="bg-white bottom-0 absolute">
+    <footer className="bg-white absolute">
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
